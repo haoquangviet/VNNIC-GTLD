@@ -7,5 +7,5 @@ Mã nguồn PHP để kết nối hệ thống API báo cáo tên miền quốc 
 
 ### Thay thế địa chỉ
 /categories/registrars/icann-registrars
-Thành địa chỉ
+thành địa chỉ
 /categories/icann-registrars
