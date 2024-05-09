@@ -38,15 +38,15 @@ class VNNIC{
 	public function tracuu($domain){
 		return $this->call('/registrars/domains'.($domain?'/'.$domain:''));
 	}
-	public function guibaobao($data=[]){
+	public function guiBaobao($data=[]){
 		$thamso = array('domainName','registeredDate','expiredDate','ownerName','ownerType','address','wardName','districtName','cityName','countryCode','phone','email','fax','adminName','isAgentManager','icannRegistrarName','note');
 		
-		return $this->call('/reports/maintain-domains','',$postData);
+		return $this->call('/reports/maintain-domains','-H "Content-Type: application/json"',$postData,'POST');
 	}
 	public function guibaobaoBiendong($data=[]){
 		$thamso = array('domainName','registeredDate','expiredDate','ownerName','ownerType','address','wardName','districtName','cityName','countryCode','phone','email','fax','adminName','isAgentManager','icannRegistrarName','action','actionReason','actionSource','actionDate','note');
 		
-		return $this->call('/reports/fluctuation-domains','',$postData);
+		return $this->call('/reports/fluctuation-domains','-H "Content-Type: application/json"',$postData,'POST');
 	}
 	function call($uri='',$parameter=null,$body=null,$type='GET'){
 		$url = $this->vnnicUrl . $uri;
