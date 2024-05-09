@@ -2,7 +2,7 @@
 Mã nguồn PHP để kết nối hệ thống API báo cáo tên miền quốc tế của VNNIC
 
 ## Tài liệu API của VNNIC đi kèm
-Đọc tài liệu của VNNIC để biết chi tiết các tham số
+Đọc tài liệu của VNNIC để biết chi tiết các tham số và cách khai báo tham số qua API
 
 ## Ghi chú
 
