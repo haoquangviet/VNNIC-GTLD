@@ -7,15 +7,15 @@ Email: viet@haoquangviet.com
 */
 
 class VNNIC{
-	public $vnnicClientID = '';
-	public $vnnicClientSecret = '';
+	protected $vnnicClientID = '';
+	protected $vnnicClientSecret = '';
 	public $vnnicUrl = 'https://gtld-api.vnnic.vn/v1';
 	public $vnnicUrlTest = 'https://gtldapi-ote.vnnic.vn/v1';
-    	public $debug=false;
+	public $debug=false;
     	public $test=true;
-	
-	public function __construct(){
-		
+	public function __construct($id,$key){
+		$this->vnnicClientID = $id;
+		$this->vnnicClientSecret = $key;
 	}
 	public function quocgia(){
 		return $this->call('/places/countries');
