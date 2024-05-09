@@ -7,15 +7,12 @@ Email: viet@haoquangviet.com
 */
 
 class VNNIC{
-	protected $vnnicClientID = '';
-	protected $vnnicClientSecret = '';
-	protected $vnnicUrl = 'https://gtld-api.vnnic.vn/v1';
-	protected $vnnicUrlTest = 'https://gtldapi-ote.vnnic.vn/v1';
-	protected $lastStatus;
-	protected $lastResponse;
-    protected $tmp;
-    public $debug=false;
-    public $test=true;
+	public $vnnicClientID = '';
+	public $vnnicClientSecret = '';
+	public $vnnicUrl = 'https://gtld-api.vnnic.vn/v1';
+	public $vnnicUrlTest = 'https://gtldapi-ote.vnnic.vn/v1';
+    	public $debug=false;
+    	public $test=true;
 	
 	public function __construct(){
 		
