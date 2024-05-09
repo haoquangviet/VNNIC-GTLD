@@ -4,9 +4,13 @@ Mã nguồn PHP để kết nối hệ thống API báo cáo tên miền quốc 
 ## Tài liệu API của VNNIC đi kèm
 Đọc tài liệu của VNNIC để biết chi tiết các tham số
 
-## API tra cứu danh mục nhà đăng ký của ICANN
+## Ghi chú
 
-### Thay thế địa chỉ
+### Địa chỉ API tra cứu danh mục nhà đăng ký của ICANN trên tài liệu bị sai, thay thế địa chỉ
 /categories/registrars/icann-registrars
 thành địa chỉ
 /categories/icann-registrars
+
+
+
+##### Các sử dụng xem trong tập tin test.php
