@@ -32,7 +32,7 @@ class VNNIC{
 	public function icann(){
 		return $this->call('/categories/icann-registrars');
 	}
-	public function tracuu($domain){
+	public function tracuu($domain=null){
 		return $this->call('/registrars/domains'.($domain?'/'.$domain:''));
 	}
 	public function guiBaobao($data=[]){
