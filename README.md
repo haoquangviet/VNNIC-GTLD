@@ -14,3 +14,13 @@ thành địa chỉ
 
 
 ##### Các sử dụng xem trong tập tin test.php
+
+
+## Module kết nối với WHMCS
+Gửi báo báo tự động khi có biến động
+- Khi đăng ký tên miền
+- Khi người dùng thay đổi thông tin tên miền
+- Khi tên miền được chuyển về
+- Khi tên miền được chuyển đi
+- Bản khai tên miền cho cá nhân và tổ chức
+- Xác thực eKYC chủ thể tên miền
