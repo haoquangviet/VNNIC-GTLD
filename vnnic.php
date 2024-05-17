@@ -1,8 +1,8 @@
 <?php
 /*
-Mã nguồn này thuộc sở hữu của Hao Quang Viet Software
+Mã ngu?n này thu?c s? h?u c?a Hao Quang Viet Software
 MuaSSL.com Certificate Authority
-Tác giả: Nguyễn Quốc Việt
+Tác gi?: Nguy?n Qu?c Vi?t
 Email: viet@haoquangviet.com
 */
 
@@ -38,28 +38,38 @@ class VNNIC{
 	public function guiBaobao($data=[]){
 		$thamso = array('domainName','registeredDate','expiredDate','ownerName','ownerType','address','wardName','districtName','cityName','countryCode','phone','email','fax','adminName','isAgentManager','icannRegistrarName','note');
 		
-		return $this->call('/reports/maintain-domains','-H "Content-Type: application/json"',$postData,'POST');
+		return $this->call('/reports/maintain-domains','-H "Content-Type: application/json"',$data,'POST');
 	}
 	public function guibaobaoBiendong($data=[]){
 		$thamso = array('domainName','registeredDate','expiredDate','ownerName','ownerType','address','wardName','districtName','cityName','countryCode','phone','email','fax','adminName','isAgentManager','icannRegistrarName','action','actionReason','actionSource','actionDate','note');
 		
-		return $this->call('/reports/fluctuation-domains','-H "Content-Type: application/json"',$postData,'POST');
+		return $this->call('/reports/fluctuation-domains','-H "Content-Type: application/json"',$data,'POST');
 	}
-	function call($uri='',$parameter=null,$body=null,$type='GET'){
+	function call($uri='',$parameter=null,$body=[],$type='GET'){
 		$url = $this->vnnicUrl . $uri;
 		if($this->test==true){
 			$url = $this->vnnicUrlTest . $uri;
 		}
 		
 		$authToken = base64_encode($this->vnnicClientID.':'.$this->vnnicClientSecret);
-		$header = array("Authorization: Basic $authToken");
-		if($body)$body = '-d "'.$body.'"';
 		
-		$url = 'curl -X '.$type.' '.$parameter.' -H "Authorization: Basic '.$authToken.'" '.$body.' "'.$url.'"';
-		$thucthi = shell_exec($url);
-		//if(empty($thucthi))return ['cmd'=>$url];
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$authToken,'Accept: application/json', 'Content-Type: application/json'));
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		
+		if($body){
+			if($body[0][0])$body = $body[0];
+			$body = json_encode($body);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+		}
+
+		$thucthi = curl_exec($curl);
+		curl_close($curl);
+		
 		$ketqua = json_decode($thucthi,true);
 		if ($this->debug == true){
+			$ketqua['body'] = $body;	
 			$ketqua['url'] = $url;
 		}
 		return $ketqua;
